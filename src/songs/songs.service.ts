@@ -42,4 +42,23 @@ export class SongsService {
       take: count
     })
   }
+
+  topArtist(){
+    /*
+      SELECT artist, COUNT(artist)
+      FROM song
+      GROUP BY artist
+      ORDER BY COUNT(artist) DESC
+    */
+
+      this.db.song.groupBy({
+        by: 'artist',
+        _count: {
+          artist: true
+        },
+        orderBy: {
+          _count: { artist: 'desc' }
+        }
+      })
+  }
 }

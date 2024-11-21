@@ -41,6 +41,11 @@ export class SongsController {
   topSongs(@Query('count') count: String = '10'){
     return this.songsService.topSongs(+count);
   }
+
+  @Get('topArtist')
+  topArtist(){
+    
+  }
 }
 
 
